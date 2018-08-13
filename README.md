@@ -4,24 +4,39 @@ The aim of this project is to provide the necessary bet API's which are sufficie
 Basically, there exists three entities in the game DCV, BVV and Player. The role of DCV and BVV is to assist in deck shuffling, dealing and fair play of the game. To test the API's written from the player perspective we run the DCV and BVV nodes, just to start with below or the steps to run DCV and BVV.
 ## Steps to compile
 ```
-cd
-git clone https://github.com/sg777/bet.git
-cd bet
-apt install make
+# Dependencies Check 
+
+apt install make ninja-build libsqlite3-dev libgmp3-dev
+
+#Install nanomsg-next-generation 
+
+$ git clone https://github.com/nanomsg/nng.git
+$ mkdir build
+$ cd build
+$ cmake -G Ninja ..
+$ ninja
+$ ninja test
+$ ninja install
+
+
+$ cd ~
+$ git clone https://github.com/sg777/bet.git
+$ cd bet
+$ make
 ```
 ## Command to run DCV
 ```
-cd
-cd bet/privatebet
-./bet dcv
+$ cd
+$ cd bet/privatebet
+$ ./bet dcv
 (ipc:///tmp/bet.ipc) bound
 (ipc:///tmp/bet1.ipc) bound
 ```
 ## Command to run BVV
 ```
-cd
-cd bet/privatebet
-./bet dcv
+$ cd
+$ cd bet/privatebet
+$ ./bet dcv
 (ipc:///tmp/bet.ipc) bound
 (ipc:///tmp/bet1.ipc) bound
 ```
